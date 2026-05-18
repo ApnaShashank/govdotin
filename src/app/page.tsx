@@ -202,7 +202,7 @@ export default function LoginPage() {
       <div className="flex flex-1">
         {/* Left: decorative chaos */}
         <div className="hidden lg:flex flex-col items-center justify-center w-72 bg-[#000080] gap-6 p-6">
-          <div className="spin-slow text-7xl">🇮🇳</div>
+          <Image src="/assets/logo.png" alt="Govt Logo" width={140} height={140} className="object-contain spin-slow border-4 border-yellow-400 p-2 bg-blue-900 shadow-md" />
           <div className="text-center text-yellow-400 font-black text-sm space-y-2">
             <p className="blink text-red-400">⚠ IMPORTANT NOTICE ⚠</p>
             <p className="text-xs text-gray-300 leading-relaxed">

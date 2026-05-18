@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import ChatBot from "@/components/ChatBot";
 import FakeLoader from "@/components/FakeLoader";
@@ -140,6 +141,12 @@ export default function VerifyPage() {
             >
               <div className="text-6xl mb-4 float">🪪</div>
               <h2 className="text-2xl font-black text-blue-900 mb-2">BIOMETRIC VERIFICATION REQUIRED</h2>
+              
+              {/* iPhone Aadhaar Link ad banner */}
+              <div className="mb-4 border-2 border-black max-w-sm mx-auto shadow-sm">
+                <Image src="/assets/ad_iphone.png" alt="iPhone Ad" width={320} height={100} className="w-full h-auto object-cover" />
+              </div>
+
               <p className="text-sm text-gray-600 mb-4">
                 To confirm your identity, you will be required to complete <strong>3 biometric steps</strong>:
               </p>

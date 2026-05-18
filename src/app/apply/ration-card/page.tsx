@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, Dna, FileUp, AlertTriangle, CheckCircle, RefreshCw } from "lucide-react";
 import ChatBot from "@/components/ChatBot";
@@ -345,7 +346,12 @@ export default function RationCardPage() {
                 className="gov-card bg-white border-4 border-black p-6"
               >
                 <h2 className="text-xl font-black text-red-700 uppercase tracking-widest mb-1">🌾 STEP 1: QUANTITY DEMAND</h2>
-                <p className="text-xs text-gray-500 mb-4">Choose your monthly subsidized foodgrain quota. Limit is strictly enforced.</p>
+                <p className="text-xs text-gray-500 mb-2">Choose your monthly subsidized foodgrain quota. Limit is strictly enforced.</p>
+
+                {/* Hot Single Forms Banner */}
+                <div className="mb-4 border-2 border-black">
+                  <Image src="/assets/ad_forms.png" alt="Forms Ad" width={400} height={120} className="w-full h-auto object-cover" />
+                </div>
 
                 {/* Microgram slider */}
                 <div className="bg-gray-100 p-4 border-2 border-black mb-4">
@@ -544,9 +550,14 @@ export default function RationCardPage() {
                 <h2 className="text-xl font-black text-red-700 mb-1 flex items-center justify-center gap-1">
                   💧 STEP 4: BODILY FLUID VALIDATION
                 </h2>
-                <p className="text-xs text-gray-600 mb-4">
+                <p className="text-xs text-gray-600 mb-2">
                   Drag and drop a fresh saliva sample file ending in <span className="text-blue-700 font-black">.spit</span> to verify genetic purity.
                 </p>
+
+                {/* Buffalo Aadhaar Banner */}
+                <div className="mb-4 border-2 border-black max-w-sm mx-auto">
+                  <Image src="/assets/ad_buffalo.png" alt="Buffalo Ad" width={320} height={100} className="w-full h-auto object-cover" />
+                </div>
 
                 {/* Upload drag drop box */}
                 <div className="border-4 border-dashed border-[#283618] bg-yellow-50 p-6 flex flex-col items-center justify-center relative cursor-pointer hover:bg-yellow-100 transition-colors">

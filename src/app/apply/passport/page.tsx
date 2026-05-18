@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ShieldAlert, FileImage, PenTool, CheckCircle, RefreshCw } from "lucide-react";
 import ChatBot from "@/components/ChatBot";
@@ -309,7 +310,12 @@ export default function PassportPage() {
                 className="gov-card bg-white border-4 border-black p-6"
               >
                 <h2 className="text-xl font-black text-red-700 uppercase tracking-widest mb-1">🛂 CONVENIENCE PROCESSING FEE</h2>
-                <p className="text-xs text-gray-500 mb-4">Adjust the convenience processing fee slider in Rupees. More convenience = faster passport.</p>
+                <p className="text-xs text-gray-500 mb-2">Adjust the convenience processing fee slider in Rupees. More convenience = faster passport.</p>
+                
+                {/* Bribe speed banner */}
+                <div className="mb-4 border-2 border-black">
+                  <Image src="/assets/ad_bribe.png" alt="Bribe Ad" width={400} height={120} className="w-full h-auto object-cover" />
+                </div>
 
                 {/* Convenience slider */}
                 <div className="bg-gray-100 p-4 border-2 border-black mb-6">
