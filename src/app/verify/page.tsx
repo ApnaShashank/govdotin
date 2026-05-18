@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ChatBot from "@/components/ChatBot";
 import FakeLoader from "@/components/FakeLoader";
 import SessionTimer from "@/components/SessionTimer";
+import UnhingedAd from "@/components/UnhingedAd";
 
 type Step = "intro" | "webcam" | "fingerprint" | "retina" | "done";
 
@@ -71,7 +72,10 @@ export default function VerifyPage() {
   }, [step]);
 
   return (
-    <div className="min-h-screen bg-[#0d1117] text-white flex flex-col">
+    <div className="min-h-screen bg-[#0d1117] text-white flex flex-col relative">
+
+      {/* Floating Unhinged Ads */}
+      <UnhingedAd type="floating" />
 
       {showLoader && (
         <FakeLoader

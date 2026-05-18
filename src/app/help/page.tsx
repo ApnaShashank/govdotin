@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronDown, ChevronUp, Phone, MessageSquare, HelpCircle } from "lucide-react";
 import ChatBot from "@/components/ChatBot";
+import UnhingedAd from "@/components/UnhingedAd";
 
 const FAQS = [
   {
@@ -94,7 +95,10 @@ export default function HelpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
+    <div className="min-h-screen bg-gray-100 flex flex-col relative">
+
+      {/* Floating Unhinged Ads */}
+      <UnhingedAd type="floating" />
 
       {/* Fake dialer modal */}
       <AnimatePresence>
@@ -293,32 +297,10 @@ export default function HelpPage() {
           )}
         </AnimatePresence>
 
-        {/* Sitemap of broken links */}
+        {/* Broken links sitemap replaced with static banner ad */}
         <div className="gov-card">
-          <h2 className="text-lg font-black mb-3 text-blue-900">🗺️ USEFUL LINKS</h2>
-          <div className="grid grid-cols-4 gap-2 text-[10px]">
-            {[
-              "User Manual (PDF, 4GB)", "Video Tutorial (404)", "Accessibility Guide",
-              "Privacy Policy (classified)", "Cookie Policy (we don't use cookies but we do judge you)",
-              "Grievance Portal (grievance about portal?)", "RTI Request Form", "Whistleblower Hotline (monitored)",
-            ].map((link, i) => (
-              <button
-                key={i}
-                className="text-blue-700 underline text-left hover:text-red-600 transition-colors"
-                onClick={() => {
-                  const msgs = [
-                    "Page not found. It was never found.",
-                    "This page requires a government-issued browser extension.",
-                    "Access denied. Please upgrade to Citizen Premium.",
-                    "Server error 418: I'm a teapot.",
-                  ];
-                  alert(msgs[i % msgs.length]);
-                }}
-              >
-                → {link}
-              </button>
-            ))}
-          </div>
+          <h2 className="text-lg font-black mb-3 text-blue-900">🗺️ SPONSORED FAST-TRACK HELPLINE</h2>
+          <UnhingedAd type="banner" />
         </div>
 
       </div>

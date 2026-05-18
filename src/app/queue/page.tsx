@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import ChatBot from "@/components/ChatBot";
 import SessionTimer from "@/components/SessionTimer";
+import UnhingedAd from "@/components/UnhingedAd";
 
 const CITIZEN_NAMES = [
   "Rajesh Kumar", "Priya Sharma", "Amit Singh", "Sunita Devi", "Mohd. Iqbal",
@@ -82,6 +83,9 @@ export default function QueuePage() {
 
   return (
     <div className="min-h-screen bg-[#f5f5dc] flex flex-col font-mono text-black relative">
+
+      {/* Floating Unhinged Ads */}
+      <UnhingedAd type="floating" />
 
       {/* Leave alert */}
       <AnimatePresence>
@@ -242,29 +246,9 @@ export default function QueuePage() {
             </ul>
           </div>
 
-          {/* Entertainment */}
-          <div className="bg-[#000080] text-yellow-400 p-3 border-2 border-yellow-400">
-            <h3 className="font-black text-xs mb-2">QUEUE ENTERTAINMENT™:</h3>
-            <div className="space-y-2 text-[9px]">
-              <button
-                className="w-full gov-btn-secondary text-[9px] py-1"
-                onClick={() => alert("Form viewing requires token upgrade (₹2,999). Please visit Counter 3. Counter 3 is closed.")}
-              >
-                📋 View your form status
-              </button>
-              <button
-                className="w-full gov-btn-secondary text-[9px] py-1"
-                onClick={() => alert("Premium fast-track available! Only ₹50,000. Pay at Counter 3. Counter 3 is closed.")}
-              >
-                ⚡ Skip queue (premium)
-              </button>
-              <button
-                className="w-full gov-btn-secondary text-[9px] py-1"
-                onClick={() => alert("Feedback submitted. It will be reviewed in 2047.")}
-              >
-                ✍️ Submit feedback
-              </button>
-            </div>
+          {/* Entertainment banner ad replacement */}
+          <div className="bg-[#000080] p-1 border-2 border-yellow-400">
+            <UnhingedAd type="sidebar" />
           </div>
 
           {/* Clock */}

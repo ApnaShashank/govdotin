@@ -10,6 +10,7 @@ import SessionTimer from "@/components/SessionTimer";
 import ChatBot from "@/components/ChatBot";
 import Popup from "@/components/Popup";
 import FakeLoader from "@/components/FakeLoader";
+import UnhingedAd from "@/components/UnhingedAd";
 import {
   Bell, AlertTriangle, ChevronDown, ChevronRight,
   FileText, HelpCircle, Loader2, RefreshCw,
@@ -42,8 +43,8 @@ const SERVICES = [
   { label: "Check Queue", href: "/queue", color: "bg-purple-800", emoji: "🕐", desc: "Position: 47,321" },
   { label: "Help / FAQ", href: "/help", color: "bg-orange-700", emoji: "❓", desc: "Won't actually help" },
   { label: "Birth Certificate", href: "#", color: "bg-gray-700", emoji: "👶", desc: "404: Life not found" },
-  { label: "Ration Card", href: "#", color: "bg-yellow-700", emoji: "🍚", desc: "Submit DNA first" },
-  { label: "Passport", href: "#", color: "bg-teal-700", emoji: "🛂", desc: "Server down since 2018" },
+  { label: "Ration Card", href: "/apply/ration-card", color: "bg-yellow-700", emoji: "🍚", desc: "Submit DNA first" },
+  { label: "Passport", href: "/apply/passport", color: "bg-teal-700", emoji: "🛂", desc: "Server down since 2018" },
 ];
 
 const NOTIFICATIONS = [
@@ -129,6 +130,9 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#000080] text-[#ffff00]" onClick={() => addRage(1)}>
+
+      {/* Floating Unhinged Ads */}
+      <UnhingedAd type="floating" onAction={addRage} />
 
       {/* ── SESSION EXPIRED MODAL ── */}
       <AnimatePresence>
@@ -252,7 +256,8 @@ export default function DashboardPage() {
                   {[
                     { label: "Income Certificate", href: "/apply/income-certificate" },
                     { label: "Birth Certificate", href: "#", note: "(404)" },
-                    { label: "Ration Card", href: "#", note: "(DNA reqd)" },
+                    { label: "Ration Card", href: "/apply/ration-card", note: "(DNA reqd)" },
+                    { label: "Passport", href: "/apply/passport", note: "(ACB reqd)" },
                     { label: "Death Certificate", href: "#", note: "(ironic)" },
                   ].map((item, i) => (
                     <Link
@@ -372,18 +377,9 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            {/* Fake ad */}
-            <div
-              className="bg-yellow-400 border-4 border-red-600 p-3 cursor-pointer flex flex-col items-center justify-center shake-hover"
-              onClick={() => { addRage(5); alert("Congratulations! You have won absolutely nothing. This is a government website."); }}
-            >
-              <Image src="/assets/ad.png" alt="ad" width={300} height={150} className="w-full h-auto mb-2" />
-              <p className="text-[10px] font-black text-red-700 text-center blink">
-                🏆 YOU WON IPHONE 27!!<br />TAP TO CLAIM NOW!!!
-              </p>
-              <p className="text-[7px] text-center mt-1 text-gray-700">
-                *Terms apply. Offer valid for citizens born in 1947 only.
-              </p>
+            {/* Unhinged inline ad instead of plain image */}
+            <div className="bg-yellow-400 border-4 border-red-600 p-1 shadow-inner">
+              <UnhingedAd type="sidebar" onAction={addRage} />
             </div>
           </div>
 

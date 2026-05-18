@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { RefreshCw } from "lucide-react";
 import ChatBot from "@/components/ChatBot";
+import UnhingedAd from "@/components/UnhingedAd";
 
 const SHUFFLED_NUMPAD = [7, 3, 1, 9, 5, 0, 4, 8, 2, 6];
 
@@ -104,6 +105,9 @@ export default function OTPPage() {
 
   return (
     <div className="min-h-screen bg-[#1a237e] flex flex-col items-center justify-center p-6 relative">
+
+      {/* Floating Unhinged Ads */}
+      <UnhingedAd type="floating" />
 
       {/* Success overlay */}
       <AnimatePresence>
@@ -246,6 +250,11 @@ export default function OTPPage() {
             {attempts} attempt{attempts > 1 ? "s" : ""}. Each attempt is logged and judged.
           </p>
         )}
+
+        {/* Static banner ad at the bottom of card */}
+        <div className="mt-4 border-t-2 border-[#1f2937] pt-4">
+          <UnhingedAd type="banner" />
+        </div>
       </div>
 
       <ChatBot />

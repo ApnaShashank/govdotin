@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import RunningButton from "@/components/RunningButton";
 import FakeLoader from "@/components/FakeLoader";
+import UnhingedAd from "@/components/UnhingedAd";
 import { AnimatePresence, motion } from "framer-motion";
 
 const WRONG_CHARS: Record<string, string> = {
@@ -95,6 +96,9 @@ export default function LoginPage() {
       className="min-h-screen flex flex-col relative overflow-hidden"
       style={{ background: `hsl(${bgHue}, 100%, 55%)` }}
     >
+      {/* Floating Unhinged Ads */}
+      <UnhingedAd type="floating" onAction={(boost) => console.log("Boosted", boost)} />
+
       {showLoader && (
         <FakeLoader
           durationMs={7000}
@@ -359,17 +363,8 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* Right sidebar: fake ads & warnings */}
-        <div className="hidden xl:flex flex-col gap-4 w-64 p-4 bg-gray-100 border-l-4 border-blue-900">
-          <div
-            className="border-4 border-red-600 bg-yellow-400 p-3 cursor-pointer shake-hover"
-            onClick={() => alert("Congratulations! You have won nothing. This is a government portal.")}
-          >
-            <Image src="/assets/ad.png" alt="ad" width={300} height={150} className="w-full h-auto mb-2" />
-            <p className="text-[10px] font-black text-red-700 text-center blink">
-              YOU WON IPHONE 27!!<br />CLICK TO CLAIM 🏆
-            </p>
-          </div>
+        <div className="hidden xl:flex flex-col gap-4 w-64 p-2 bg-gray-100 border-l-4 border-blue-900">
+          <UnhingedAd type="sidebar" onAction={(boost) => console.log("Boosted", boost)} />
 
           <div className="bg-[#000080] text-green-400 p-3 font-mono text-[9px] space-y-1">
             <p className="text-yellow-400 font-black">SYSTEM STATUS:</p>

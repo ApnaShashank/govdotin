@@ -11,6 +11,7 @@ import {
 import FakeLoader from "@/components/FakeLoader";
 import SessionTimer from "@/components/SessionTimer";
 import ChatBot from "@/components/ChatBot";
+import UnhingedAd from "@/components/UnhingedAd";
 
 // ── State ──────────────────────────────────────────────────
 type Step = 1 | 2 | 3 | 4 | 5;
@@ -117,7 +118,10 @@ export default function IncomeCertificatePage() {
   const secs = String(timer % 60).padStart(2, "0");
 
   return (
-    <div className="min-h-screen bg-[#ff00ff] flex flex-col items-center justify-center p-6 relative">
+    <div className="min-h-screen bg-[#ff00ff] flex flex-col items-center justify-center p-6 relative overflow-hidden">
+
+      {/* Floating Unhinged Ads */}
+      <UnhingedAd type="floating" />
 
       {showLoader && (
         <FakeLoader
